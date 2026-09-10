@@ -74,7 +74,7 @@ export function AiPanel() {
           copy[copy.length - 1] = {
             role: 'assistant',
             content:
-              'The AI service returned no response. This usually means the Vercel AI Gateway needs billing enabled for this project (a valid card on file unlocks free credits). Once that\u2019s set up, the assistant will work here and in your deployment.',
+              'The AI service returned no response. Add an OPENAI_API_KEY environment variable to use your own OpenAI account, or enable billing on the Vercel AI Gateway. Once either is set up, the assistant will work here and in your deployment.',
           }
           return copy
         })
