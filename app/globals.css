@@ -1,0 +1,132 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-quantum-purple: var(--quantum-purple);
+  --color-quantum-pink: var(--quantum-pink);
+  --color-quantum-blue: var(--quantum-blue);
+  --color-quantum-orange: var(--quantum-orange);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-orbitron), var(--font-inter), sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Logo-derived palette */
+  --quantum-purple: oklch(0.62 0.24 300);
+  --quantum-pink: oklch(0.65 0.26 350);
+  --quantum-blue: oklch(0.62 0.2 262);
+  --quantum-orange: oklch(0.72 0.19 45);
+
+  --background: oklch(0.15 0.025 280);
+  --foreground: oklch(0.96 0.01 280);
+
+  --card: oklch(0.19 0.03 282);
+  --card-foreground: oklch(0.96 0.01 280);
+
+  --popover: oklch(0.18 0.03 282);
+  --popover-foreground: oklch(0.96 0.01 280);
+
+  --primary: oklch(0.62 0.24 300);
+  --primary-foreground: oklch(0.98 0.01 300);
+
+  --secondary: oklch(0.24 0.035 282);
+  --secondary-foreground: oklch(0.96 0.01 280);
+
+  --muted: oklch(0.24 0.03 282);
+  --muted-foreground: oklch(0.7 0.03 285);
+
+  --accent: oklch(0.65 0.26 350);
+  --accent-foreground: oklch(0.98 0.01 350);
+
+  --destructive: oklch(0.62 0.24 20);
+
+  --border: oklch(0.3 0.04 285 / 60%);
+  --input: oklch(0.28 0.04 285 / 70%);
+  --ring: oklch(0.62 0.24 300);
+
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-sidebar: var(--card);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* Custom scrollbars to match the cosmic theme */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.4 0.06 290 / 60%);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.55 0.12 300 / 70%);
+    background-clip: content-box;
+  }
+}
+
+@utility quantum-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--quantum-orange) 0%,
+    var(--quantum-pink) 35%,
+    var(--quantum-purple) 65%,
+    var(--quantum-blue) 100%
+  );
+}
+
+@utility quantum-text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--quantum-orange) 0%,
+    var(--quantum-pink) 35%,
+    var(--quantum-purple) 65%,
+    var(--quantum-blue) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
